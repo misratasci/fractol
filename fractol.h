@@ -6,7 +6,7 @@
 /*   By: mitasci <mitasci@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 12:23:52 by mitasci           #+#    #+#             */
-/*   Updated: 2024/04/17 12:49:58 by mitasci          ###   ########.fr       */
+/*   Updated: 2024/04/17 14:31:06 by mitasci          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include <mlx.h>
 # include <stdio.h>
+# include <stdlib.h>
 
 typedef struct s_data {
 	void	*img;
