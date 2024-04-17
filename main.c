@@ -6,7 +6,7 @@
 /*   By: mitasci <mitasci@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/16 16:13:40 by mitasci           #+#    #+#             */
-/*   Updated: 2024/04/17 14:43:21 by mitasci          ###   ########.fr       */
+/*   Updated: 2024/04/17 15:25:02 by mitasci          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,6 +69,7 @@ int	**create_matrix(int size_x, int size_y)
 		mtx[i] = (int *)malloc(sizeof(int) * size_y);
 		if (!mtx[i])
 			perror("Could not allocate mtx[i]");
+		i++;
 	}
 	return (mtx);
 }
@@ -82,6 +83,7 @@ void	fill_matrix(int **mtx, int size_x, int size_y)
 	j = 0;
 	while (i < size_x)
 	{
+		j = 0;
 		while (j < size_y)
 		{
 			mtx[i][j] = get_mandelbrot_pixel(i, j, size_x, size_y);
@@ -118,15 +120,15 @@ int	main(void)
 	int		**mtx;
 
 	mlx = mlx_init();
-	mlx_win = mlx_new_window(mlx, 200, 100, "Hello world!");
+	mlx_win = mlx_new_window(mlx,200, 100, "Hello world!");
 	img.img = mlx_new_image(mlx, 200, 100);
 	img.addr = mlx_get_data_addr(img.img, &img.bits_per_pixel, &img.line_length,
 								&img.endian);
 	mtx = create_matrix(200, 100);
 	fill_matrix(mtx, 200, 100);
-	//put_pixels(mlx, mlx_win, 200, 100, mtx);
-	mlx_pixel_put(mlx, mlx_win, 10, 10, 0x0000FF00);
-	mlx_pixel_put(mlx, mlx_win, 5, 5, 0x00FF00FF);
+	put_pixels(&mlx, &mlx_win, 200, 100, mtx);
+	/* mlx_pixel_put(mlx, mlx_win, 10, 10, 0x0000FF00);
+	mlx_pixel_put(mlx, mlx_win, 5, 5, 0x00FF00FF); */
 	mlx_loop(mlx);
 	
 	printf("%d", get_mandelbrot_pixel(1000, 550, 2000, 1000));
