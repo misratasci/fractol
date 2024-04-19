@@ -6,7 +6,7 @@
 /*   By: mitasci <mitasci@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/16 16:13:40 by mitasci           #+#    #+#             */
-/*   Updated: 2024/04/17 15:25:02 by mitasci          ###   ########.fr       */
+/*   Updated: 2024/04/19 15:51:17 by mitasci          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,6 @@ void	fill_matrix(int **mtx, int size_x, int size_y)
 	int	j;
 
 	i = 0;
-	j = 0;
 	while (i < size_x)
 	{
 		j = 0;
@@ -99,9 +98,9 @@ void	put_pixels(void *mlx, void *mlx_win, int size_x, int size_y, int **mtx)
 	int	j;
 
 	i = 0;
-	j = 0;
 	while (i < size_x)
 	{
+		j = 0;
 		while (j < size_y)
 		{
 			mlx_pixel_put(mlx, mlx_win, i, j, mtx[i][j]);
@@ -113,20 +112,22 @@ void	put_pixels(void *mlx, void *mlx_win, int size_x, int size_y, int **mtx)
 
 int	main(void)
 {
-	
+	int		win_size[2];
+	int		**mtx;
 	void	*mlx;
 	void	*mlx_win;
 	t_data	img;
-	int		**mtx;
 
+	win_size[0] = 2000;
+	win_size[1] = 1000;
+	mtx = create_matrix(win_size[0], win_size[1]);
+	fill_matrix(mtx, win_size[0], win_size[1]);
 	mlx = mlx_init();
-	mlx_win = mlx_new_window(mlx,200, 100, "Hello world!");
-	img.img = mlx_new_image(mlx, 200, 100);
+	mlx_win = mlx_new_window(mlx, win_size[0], win_size[1], "Fractol");
+	img.img = mlx_new_image(mlx, win_size[0], win_size[1]);
 	img.addr = mlx_get_data_addr(img.img, &img.bits_per_pixel, &img.line_length,
 								&img.endian);
-	mtx = create_matrix(200, 100);
-	fill_matrix(mtx, 200, 100);
-	put_pixels(&mlx, &mlx_win, 200, 100, mtx);
+	put_pixels(mlx, mlx_win, win_size[0], win_size[1], mtx);
 	/* mlx_pixel_put(mlx, mlx_win, 10, 10, 0x0000FF00);
 	mlx_pixel_put(mlx, mlx_win, 5, 5, 0x00FF00FF); */
 	mlx_loop(mlx);
