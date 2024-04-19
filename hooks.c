@@ -6,7 +6,7 @@
 /*   By: mitasci <mitasci@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/19 16:16:47 by mitasci           #+#    #+#             */
-/*   Updated: 2024/04/19 18:01:23 by mitasci          ###   ########.fr       */
+/*   Updated: 2024/04/19 18:46:19 by mitasci          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,4 +30,7 @@ double	scale_x(int x, double scale, double offset)
 	return ((x - offset) / scale);
 }
 
-//void	zoom_in()
+void	zoom_in(double *scale)
+{
+	
+}

@@ -6,7 +6,7 @@
 /*   By: mitasci <mitasci@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 12:23:52 by mitasci           #+#    #+#             */
-/*   Updated: 2024/04/19 18:04:21 by mitasci          ###   ########.fr       */
+/*   Updated: 2024/04/19 18:14:42 by mitasci          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,10 @@ typedef struct s_data {
 	int		line_length;
 	int		endian;
 }	t_data;
+
+typedef struct	s_grid {
+	double	scale;
+}	t_grid;
 
 //mandelbrot.c
 int	get_mandelbrot_pixel(int x, int y, int size_x, int size_y);
