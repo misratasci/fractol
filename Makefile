@@ -2,7 +2,7 @@ NAME = fractol
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
 RM = rm -rf
-SRCS = main.c mandelbrot.c hooks.c
+SRCS = main.c mandelbrot.c hooks.c mtx.c utils.c
 OBJ = $(SRCS:.c=.o)
 
 all: $(NAME)

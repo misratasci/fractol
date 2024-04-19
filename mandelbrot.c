@@ -6,26 +6,11 @@
 /*   By: mitasci <mitasci@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/19 16:10:19 by mitasci           #+#    #+#             */
-/*   Updated: 2024/04/19 16:10:52 by mitasci          ###   ########.fr       */
+/*   Updated: 2024/04/19 18:04:33 by mitasci          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
-
-double	scale_x(int x, int size_x)
-{
-	double offset;
-	double	scale;
-
-	offset = (double)size_x / 2;
-	scale = (double)size_x / 4;
-	return ((x - offset) / scale);
-}
-
-double	scale_y(int y, int size_y)
-{
-	return (-scale_x(y, size_y));
-}
 
 int	get_mandelbrot_pixel(int x, int y, int size_x, int size_y)
 {
@@ -35,8 +20,8 @@ int	get_mandelbrot_pixel(int x, int y, int size_x, int size_y)
 	int		i;
 	int		max_iter;
 
-	c[0] = scale_x(x, size_x);
-	c[1] = scale_y(y, size_y);
+	c[0] = scale_x(x, size_x / 4, size_x / 2);
+	c[1] = -1 * scale_x(y, size_y / 4, size_y / 2);
 	z[0] = 0;
 	z[1] = 0;
 	i = 0;
@@ -50,7 +35,5 @@ int	get_mandelbrot_pixel(int x, int y, int size_x, int size_y)
 		z[0] = tmp;
 		i++;
 	}
-	if (i == max_iter)
-		return (0x00FF0000);
-	return (0x00000000);
+	return (get_color(i, max_iter));
 }
