@@ -6,54 +6,11 @@
 /*   By: mitasci <mitasci@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/16 16:13:40 by mitasci           #+#    #+#             */
-/*   Updated: 2024/04/19 15:51:17 by mitasci          ###   ########.fr       */
+/*   Updated: 2024/04/19 16:19:28 by mitasci          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
-
-double	scale_x(int x, int size_x)
-{
-	double offset;
-	double	scale;
-
-	offset = (double)size_x / 2;
-	scale = (double)size_x / 4;
-	return ((x - offset) / scale);
-}
-
-double	scale_y(int y, int size_y)
-{
-	return (-scale_x(y, size_y));
-}
-
-int	get_mandelbrot_pixel(int x, int y, int size_x, int size_y)
-{
-	double	c[2];
-	double	z[2];
-	double	tmp;
-	int		i;
-	int		max_iter;
-
-	c[0] = scale_x(x, size_x);
-	c[1] = scale_y(y, size_y);
-	z[0] = 0;
-	z[1] = 0;
-	i = 0;
-	max_iter = 50;
-	//printf("c = %f + %fi\n", c[0], c[1]);
-	while (z[0] * z[0] + z[1] * z[1] <= 4 && i < max_iter)
-	{
-		//printf("z = %f + %fi, x2 + y2 = %f, i = %d\n", z[0], z[1], z[0] * z[0] + z[1] * z[1], i);
-		tmp = z[0] * z[0] - z[1] * z[1] + c[0];
-		z[1] = 2 * z[0] * z[1] + c[1];
-		z[0] = tmp;
-		i++;
-	}
-	if (i == max_iter)
-		return (0x00FF0000);
-	return (0x00000000);
-}
 
 int	**create_matrix(int size_x, int size_y)
 {
@@ -118,7 +75,7 @@ int	main(void)
 	void	*mlx_win;
 	t_data	img;
 
-	win_size[0] = 2000;
+	win_size[0] = 1000;
 	win_size[1] = 1000;
 	mtx = create_matrix(win_size[0], win_size[1]);
 	fill_matrix(mtx, win_size[0], win_size[1]);
@@ -128,9 +85,6 @@ int	main(void)
 	img.addr = mlx_get_data_addr(img.img, &img.bits_per_pixel, &img.line_length,
 								&img.endian);
 	put_pixels(mlx, mlx_win, win_size[0], win_size[1], mtx);
-	/* mlx_pixel_put(mlx, mlx_win, 10, 10, 0x0000FF00);
-	mlx_pixel_put(mlx, mlx_win, 5, 5, 0x00FF00FF); */
+	mlx_hook(mlx_win, 04, 0, handle_mousewheel, NULL);
 	mlx_loop(mlx);
-	
-	printf("%d", get_mandelbrot_pixel(1000, 550, 2000, 1000));
 }

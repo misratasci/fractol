@@ -1,34 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fractol.h                                          :+:      :+:    :+:   */
+/*   hooks.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mitasci <mitasci@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/17 12:23:52 by mitasci           #+#    #+#             */
-/*   Updated: 2024/04/19 16:26:50 by mitasci          ###   ########.fr       */
+/*   Created: 2024/04/19 16:16:47 by mitasci           #+#    #+#             */
+/*   Updated: 2024/04/19 16:26:45 by mitasci          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FRACTOL_H
-# define FRACTOL_H
+#include "fractol.h"
 
-# include <mlx.h>
-# include <stdio.h>
-# include <stdlib.h>
-
-typedef struct s_data {
-	void	*img;
-	char	*addr;
-	int		bits_per_pixel;
-	int		line_length;
-	int		endian;
-}	t_data;
-
-//mandelbrot.c
-int	get_mandelbrot_pixel(int x, int y, int size_x, int size_y);
-
-//hooks.c
-int	handle_mousewheel(int button);
-
-#endif
+int	handle_mousewheel(int button)
+{
+    if (button == 4)
+    {
+        printf("Mouse wheel up\n");
+    }
+    else if (button == 5)
+    {
+        printf("Mouse wheel down\n");
+    }
+	return (0);
+}
