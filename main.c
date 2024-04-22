@@ -6,48 +6,54 @@
 /*   By: mitasci <mitasci@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/16 16:13:40 by mitasci           #+#    #+#             */
-/*   Updated: 2024/04/19 18:12:51 by mitasci          ###   ########.fr       */
+/*   Updated: 2024/04/22 18:13:49 by mitasci          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-void	put_pixels(void *mlx, void *mlx_win, int size_x, int size_y, int **mtx)
+void	fill_image(int size_x, int **mtx, t_data *img)
 {
-	int	i;
-	int	j;
+	int	x;
+	int	y;
+	int	pix;
 
-	i = 0;
-	while (i < size_x)
+	x = 0;
+	while (x < size_x)
 	{
-		j = 0;
-		while (j < size_y)
+		y = 0;
+		while (y < size_x)
 		{
-			mlx_pixel_put(mlx, mlx_win, i, j, mtx[i][j]);
-			j++;
+			pix = (x * (img->bits_per_pixel / 8)) + (y * img->line_length);
+			img->addr[pix] = mtx[x][y] & 0xFF;
+			img->addr[pix + 1] = (mtx[x][y] >> 8) & 0xFF;
+			img->addr[pix + 2] = (mtx[x][y] >> 16) & 0xFF;
+			y++;
 		}
-		i++;
+		x++;
 	}
 }
 
 int	main(void)
 {
-	int		win_size[2];
+	int		win_size;
 	int		**mtx;
 	void	*mlx;
 	void	*mlx_win;
 	t_data	img;
+	double	scale;
 
-	win_size[0] = 600;
-	win_size[1] = 600;
-	mtx = create_matrix(win_size[0], win_size[1]);
-	fill_matrix(mtx, win_size[0], win_size[1]);
+	win_size = 600;
+	scale = (double)(win_size / 4);
+	mtx = create_matrix(win_size);
+	fill_matrix(mtx, win_size, scale);
 	mlx = mlx_init();
-	mlx_win = mlx_new_window(mlx, win_size[0], win_size[1], "Fractol");
-	img.img = mlx_new_image(mlx, win_size[0], win_size[1]);
+	mlx_win = mlx_new_window(mlx, win_size, win_size, "Fractol");
+	img.img = mlx_new_image(mlx, win_size, win_size);
 	img.addr = mlx_get_data_addr(img.img, &img.bits_per_pixel, &img.line_length,
 								&img.endian);
-	put_pixels(mlx, mlx_win, win_size[0], win_size[1], mtx);
-	mlx_hook(mlx_win, 04, 0, handle_mousewheel, NULL);
+	fill_image(win_size, mtx, &img);
+	mlx_put_image_to_window(mlx, mlx_win, img.img, 0, 0);
+	mlx_hook(mlx_win, 04, 0, handle_mousewheel, &scale);
 	mlx_loop(mlx);
 }

@@ -6,7 +6,7 @@
 /*   By: mitasci <mitasci@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 12:23:52 by mitasci           #+#    #+#             */
-/*   Updated: 2024/04/19 18:14:42 by mitasci          ###   ########.fr       */
+/*   Updated: 2024/04/22 18:17:34 by mitasci          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,15 +30,15 @@ typedef struct	s_grid {
 }	t_grid;
 
 //mandelbrot.c
-int	get_mandelbrot_pixel(int x, int y, int size_x, int size_y);
+int	get_mandelbrot_pixel(int x, int y, int size_x, double scale);
 
 //hooks.c
-int		handle_mousewheel(int button);
+int	handle_mousewheel(int button);
 double	scale_x(int x, double scale, double offset);
 
 //mtx.c
-int		**create_matrix(int size_x, int size_y);
-void	fill_matrix(int **mtx, int size_x, int size_y);
+int		**create_matrix(int size_x);
+void	fill_matrix(int **mtx, int size_x, double scale);
 
 //utils.c
 int	get_color(int i, int max_iter);

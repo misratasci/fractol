@@ -6,13 +6,13 @@
 /*   By: mitasci <mitasci@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/19 17:43:21 by mitasci           #+#    #+#             */
-/*   Updated: 2024/04/19 17:43:59 by mitasci          ###   ########.fr       */
+/*   Updated: 2024/04/22 18:15:32 by mitasci          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-int	**create_matrix(int size_x, int size_y)
+int	**create_matrix(int size_x)
 {
 	int	**mtx;
 	int	i;
@@ -23,7 +23,7 @@ int	**create_matrix(int size_x, int size_y)
 	i = 0;
 	while (i < size_x)
 	{
-		mtx[i] = (int *)malloc(sizeof(int) * size_y);
+		mtx[i] = (int *)malloc(sizeof(int) * size_x);
 		if (!mtx[i])
 			perror("Could not allocate mtx[i]");
 		i++;
@@ -31,7 +31,7 @@ int	**create_matrix(int size_x, int size_y)
 	return (mtx);
 }
 
-void	fill_matrix(int **mtx, int size_x, int size_y)
+void	fill_matrix(int **mtx, int size_x, double scale)
 {
 	int	i;
 	int	j;
@@ -40,9 +40,9 @@ void	fill_matrix(int **mtx, int size_x, int size_y)
 	while (i < size_x)
 	{
 		j = 0;
-		while (j < size_y)
+		while (j < size_x)
 		{
-			mtx[i][j] = get_mandelbrot_pixel(i, j, size_x, size_y);
+			mtx[i][j] = get_mandelbrot_pixel(i, j, size_x, scale);
 			j++;
 		}
 		i++;
