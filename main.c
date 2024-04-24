@@ -6,7 +6,7 @@
 /*   By: mitasci <mitasci@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/16 16:13:40 by mitasci           #+#    #+#             */
-/*   Updated: 2024/04/24 15:03:14 by mitasci          ###   ########.fr       */
+/*   Updated: 2024/04/24 15:18:16 by mitasci          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,11 @@ int	main(void)
 	t_app	*app;
 
 	app = malloc(sizeof(t_app));
-	printf("%p\n", app);
-	printf("%p\n", (t_app *)app);
+	printf("%p\n", &app);
+	
 	if (!app)
 		perror("Could not allocate memory for app\n");
+	
 	app->win_size = 600;
 	app->mlx = mlx_init();
 	app->mlx_win = mlx_new_window(app->mlx, app->win_size, app->win_size, "Fractol");

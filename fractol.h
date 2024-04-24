@@ -6,7 +6,7 @@
 /*   By: mitasci <mitasci@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 12:23:52 by mitasci           #+#    #+#             */
-/*   Updated: 2024/04/24 15:05:08 by mitasci          ###   ########.fr       */
+/*   Updated: 2024/04/24 15:26:29 by mitasci          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ typedef struct s_app {
 int	get_mandelbrot_pixel(int x, int y, int size_x, double scale);
 
 //hooks.c
-int	handle_mousewheel(int button, void *app);
+int	handle_mousewheel(int button, int x, int y, t_app *app);
 double	scale_x(int x, double scale, double offset);
 
 //mtx.c
