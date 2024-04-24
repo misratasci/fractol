@@ -6,7 +6,7 @@
 /*   By: mitasci <mitasci@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/19 17:43:21 by mitasci           #+#    #+#             */
-/*   Updated: 2024/04/22 18:15:32 by mitasci          ###   ########.fr       */
+/*   Updated: 2024/04/22 19:04:26 by mitasci          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,22 +29,4 @@ int	**create_matrix(int size_x)
 		i++;
 	}
 	return (mtx);
-}
-
-void	fill_matrix(int **mtx, int size_x, double scale)
-{
-	int	i;
-	int	j;
-
-	i = 0;
-	while (i < size_x)
-	{
-		j = 0;
-		while (j < size_x)
-		{
-			mtx[i][j] = get_mandelbrot_pixel(i, j, size_x, scale);
-			j++;
-		}
-		i++;
-	}
 }

@@ -11,7 +11,7 @@ all: $(NAME)
 	$(CC) $(CFLAGS) -Imlx -c $< -o $@
 
 $(NAME): $(OBJ)
-	$(CC) $(OBJ) -Lmlx -lmlx -framework OpenGL -framework AppKit -o $(NAME)
+	$(CC) $(OBJ) -Lmlx -lmlx -framework OpenGL -framework AppKit -o $(NAME) -fsanitize=address
 
 clean:
 	$(RM) $(SRCS:.c=.o)
