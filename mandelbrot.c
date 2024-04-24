@@ -6,7 +6,7 @@
 /*   By: mitasci <mitasci@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/19 16:10:19 by mitasci           #+#    #+#             */
-/*   Updated: 2024/04/24 19:08:39 by mitasci          ###   ########.fr       */
+/*   Updated: 2024/04/24 19:37:47 by mitasci          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int	get_mandelbrot_pixel(int x, int y, t_app app)
 	z2[0] = 0;
 	z2[1] = 0;
 	i = 0;
-	max_iter = 1000;
+	max_iter = 500;
 	//printf("c = %f + %fi\n", c[0], c[1]);
 	while (z2[0] + z2[1] <= 4 && i < max_iter)
 	{
