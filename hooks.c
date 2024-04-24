@@ -6,7 +6,7 @@
 /*   By: mitasci <mitasci@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/19 16:16:47 by mitasci           #+#    #+#             */
-/*   Updated: 2024/04/24 17:03:33 by mitasci          ###   ########.fr       */
+/*   Updated: 2024/04/24 17:33:08 by mitasci          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ int	handle_mousewheel(int button, int x, int y, t_app *app)
         printf("Mouse wheel down\n");
 		printf("%f\n", app->scale);
 		printf("x: %d, y: %d\n", x, y);
-		zoom_out(app, 20.0, x, y);
+		zoom_out(app, 0.15, x, y);
 		fill_image(app->win_size, &(app->img), *app);
 		mlx_put_image_to_window(app->mlx, app->mlx_win, app->img.img, 0, 0);
     }
