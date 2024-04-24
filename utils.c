@@ -6,7 +6,7 @@
 /*   By: mitasci <mitasci@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/19 18:03:14 by mitasci           #+#    #+#             */
-/*   Updated: 2024/04/22 19:03:35 by mitasci          ###   ########.fr       */
+/*   Updated: 2024/04/24 16:42:52 by mitasci          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int	get_color(int i, int max_iter)
 	return (0x00000000);
 }
 
-void	fill_image(int size_x, t_data *img, double scale)
+void	fill_image(int size_x, t_data *img, t_app app)
 {
 	int	x;
 	int	y;
@@ -39,7 +39,7 @@ void	fill_image(int size_x, t_data *img, double scale)
 		while (y < size_x)
 		{
 			pix = (x * (img->bits_per_pixel / 8)) + (y * img->line_length);
-			color = get_mandelbrot_pixel(x, y, size_x, scale);
+			color = get_mandelbrot_pixel(x, y, app);
 			img->addr[pix] = color & 0xFF;
 			img->addr[pix + 1] = (color >> 8) & 0xFF;
 			img->addr[pix + 2] = (color >> 16) & 0xFF;

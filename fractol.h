@@ -6,7 +6,7 @@
 /*   By: mitasci <mitasci@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 12:23:52 by mitasci           #+#    #+#             */
-/*   Updated: 2024/04/24 15:26:29 by mitasci          ###   ########.fr       */
+/*   Updated: 2024/04/24 16:42:55 by mitasci          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,20 +31,23 @@ typedef struct s_app {
 	int		win_size;
 	t_data	img;
 	double	scale;
+	int		offset_x;
+	int		offset_y;
 }	t_app;
 
 //mandelbrot.c
-int	get_mandelbrot_pixel(int x, int y, int size_x, double scale);
+int	get_mandelbrot_pixel(int x, int y, t_app app);
 
 //hooks.c
 int	handle_mousewheel(int button, int x, int y, t_app *app);
-double	scale_x(int x, double scale, double offset);
+double	scale_x(int x, double scale, int offset);
+double	scale_y(int y, double scale, int offset);
 
 //mtx.c
 int		**create_matrix(int size_x);
 
 //utils.c
 int	get_color(int i, int max_iter);
-void	fill_image(int size_x, t_data *img, double scale);
+void	fill_image(int size_x, t_data *img, t_app app);
 
 #endif

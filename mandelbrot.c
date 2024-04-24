@@ -6,13 +6,13 @@
 /*   By: mitasci <mitasci@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/19 16:10:19 by mitasci           #+#    #+#             */
-/*   Updated: 2024/04/22 18:15:57 by mitasci          ###   ########.fr       */
+/*   Updated: 2024/04/24 16:37:50 by mitasci          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-int	get_mandelbrot_pixel(int x, int y, int size_x, double scale)
+int	get_mandelbrot_pixel(int x, int y, t_app app)
 {
 	double	c[2];
 	double	z[2];
@@ -20,8 +20,8 @@ int	get_mandelbrot_pixel(int x, int y, int size_x, double scale)
 	int		i;
 	int		max_iter;
 
-	c[0] = scale_x(x, scale, size_x / 2);
-	c[1] = -1 * scale_x(y, scale, size_x / 2);
+	c[0] = scale_x(x, app.scale, app.offset_x);
+	c[1] = scale_y(y, app.scale, app.offset_y);
 	z[0] = 0;
 	z[1] = 0;
 	i = 0;
