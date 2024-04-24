@@ -6,7 +6,7 @@
 /*   By: mitasci <mitasci@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/19 16:10:19 by mitasci           #+#    #+#             */
-/*   Updated: 2024/04/24 18:33:08 by mitasci          ###   ########.fr       */
+/*   Updated: 2024/04/24 19:08:39 by mitasci          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ int	get_mandelbrot_pixel(int x, int y, t_app app)
 	}
 	return (get_color(i, max_iter));
 }
-
+/*
 double	rev_scale_x(int c1, double scale, int offset)
 {
 	return (c1 * scale + offset);
@@ -82,3 +82,4 @@ int	*get_prev_cx(t_app app)
 
 	prev_cx = (int *)malloc(sizeof(int) * )
 }
+*/
