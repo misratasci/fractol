@@ -6,7 +6,7 @@
 /*   By: mitasci <mitasci@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 12:23:52 by mitasci           #+#    #+#             */
-/*   Updated: 2024/04/25 12:24:46 by mitasci          ###   ########.fr       */
+/*   Updated: 2024/04/25 12:45:05 by mitasci          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,17 +53,20 @@ int	handle_mousewheel(int button, int x, int y, t_app *app);
 int		**create_matrix(int size_x);
 
 //utils.c
-int	get_color(int i, int max_iter);
+int		get_color(int i, int max_iter);
 void	fill_image(int size_x, t_data *img, t_app app);
 double	scale_x(int x, double scale, int offset);
 double	scale_y(int y, double scale, int offset);
 void	draw(t_app *app);
+int		valid_double(const char *s);
+int		count_in_str(const char *s, char c);
 
 //libft
-int	ft_atoi(const char *str);
+int		ft_atoi(const char *str);
 char	**ft_split(char const *s, char c);
 char	*ft_strjoin(char const *s1, char const *s2);
 size_t	ft_strlen(const char *s);
 double	ft_atod(const char *s);
+int		ft_isdigit(int c);
 
 #endif

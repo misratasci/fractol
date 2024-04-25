@@ -6,7 +6,7 @@
 /*   By: mitasci <mitasci@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/16 16:13:40 by mitasci           #+#    #+#             */
-/*   Updated: 2024/04/25 12:27:41 by mitasci          ###   ########.fr       */
+/*   Updated: 2024/04/25 13:04:26 by mitasci          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,16 +34,36 @@ void	app_init(t_app *app, char **argv)
 	app->zoom_speed = 0.10;
 }
 
+void	print_usage(void)
+{
+	write(1, "Usage:\nMandelbrot:\t./fractol m\n", 32);
+	write(1, "Julia:\t\t./fractol j <Re(c)> <Im(c)>\n", 37);
+}
+
+void	check_args(int argc, char **argv)
+{	
+	if (argc <= 1 || (argc == 2 && argv[1][0] != 'm') ||
+	argc == 3 || (argc == 4 && argv[1][0] != 'j') || argc >= 5)
+	{
+		print_usage();
+		exit(EXIT_SUCCESS);
+	}
+	if (argc == 4 && argv[1][0] == 'j')
+	{
+		if (!valid_double(argv[2]) || !valid_double(argv[3]))
+		{
+			write(1, "Double parse error\n", 20);
+			print_usage();
+			exit(EXIT_SUCCESS);
+		}
+	}
+}
+
 int	main(int argc, char **argv)
 {
 	t_app	*app;
 
-	if (argc <= 1 || (argc == 2 && argv[1][0] != 'm')) //diğer şartları da ekle
-	{
-		write(1, "Usage:\nMandelbrot:\t./fractol m\n", 32);
-		write(1, "Julia:\t\t./fractol j <Re(c)> <Im(c)>\n", 37);
-		return (0);
-	}
+	check_args(argc, argv);
 	app = malloc(sizeof(t_app));
 	if (!app)
 	{

@@ -3,7 +3,8 @@ CC = cc
 CFLAGS = -Wall -Wextra -Werror -O3
 RM = rm -rf
 SRCS = main.c mandelbrot.c julia.c hooks.c mtx.c utils.c \
-		libft/ft_atoi.c libft/ft_split.c libft/ft_strjoin.c libft/ft_strlen.c libft/ft_atod.c
+		libft/ft_atoi.c libft/ft_split.c libft/ft_strjoin.c libft/ft_strlen.c \
+		libft/ft_atod.c libft/ft_isdigit.c
 OBJ = $(SRCS:.c=.o)
 
 all: $(NAME)

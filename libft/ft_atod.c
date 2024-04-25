@@ -6,27 +6,11 @@
 /*   By: mitasci <mitasci@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/25 11:40:10 by mitasci           #+#    #+#             */
-/*   Updated: 2024/04/25 12:26:32 by mitasci          ###   ########.fr       */
+/*   Updated: 2024/04/25 13:09:57 by mitasci          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../fractol.h"
-
-static int	count_in_str(const char *s, char c)
-{
-	int	i;
-	int	count;
-
-	i = 0;
-	count = 0;
-	while (s[i])
-	{
-		if (s[i] == c)
-			count++;
-		i++;
-	}
-	return (count);
-}
 
 static double	pow(a, b)
 {
@@ -59,22 +43,23 @@ double	ft_atod(const char *s)
 	double	divisor;
 	char	*joined_str;
 	double	joined;
-	int		i;
 
 	if (count_in_str(s, '.') == 0)
 		return ((double)ft_atoi(s));
-	if (count_in_str(s, '.') != 1)
+	if (s[0] != '.')
 	{
-		perror("double parse error");
-		exit(EXIT_FAILURE);
+		ss = ft_split(s, '.');
+		divisor = pow(10, ft_strlen(ss[1]));
+		joined_str = ft_strjoin(ss[0], ss[1]);
+		free_ss(ss);
+		joined = (double)ft_atoi(joined_str);
+		if (joined_str)
+			free(joined_str);
 	}
-	ss = ft_split(s, '.');
-	i = 0;
-	divisor = pow(10, ft_strlen(ss[1]));
-	joined_str = ft_strjoin(ss[0], ss[1]);
-	free_ss(ss);
-	joined = (double)ft_atoi(joined_str);
-	if (joined_str)
-		free(joined_str);
+	else
+	{
+		divisor = pow(10, ft_strlen(s) - 1);
+		joined = (double)ft_atoi(s + 1);
+	}
 	return (joined / divisor);
 }
