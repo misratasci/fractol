@@ -6,11 +6,11 @@
 /*   By: mitasci <mitasci@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/09 18:09:25 by mitasci           #+#    #+#             */
-/*   Updated: 2024/04/25 11:44:14 by mitasci          ###   ########.fr       */
+/*   Updated: 2024/04/25 12:26:00 by mitasci          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fractol.h"
+#include "../fractol.h"
 
 static size_t	strlength(const char *s)
 {

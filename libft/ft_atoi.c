@@ -6,11 +6,11 @@
 /*   By: mitasci <mitasci@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 11:38:10 by mitasci           #+#    #+#             */
-/*   Updated: 2024/04/25 11:41:02 by mitasci          ###   ########.fr       */
+/*   Updated: 2024/04/25 12:25:34 by mitasci          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fractol.h"
+#include "../fractol.h"
 
 static int	is_whitespace(int c)
 {

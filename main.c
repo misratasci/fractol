@@ -6,7 +6,7 @@
 /*   By: mitasci <mitasci@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/16 16:13:40 by mitasci           #+#    #+#             */
-/*   Updated: 2024/04/25 11:40:41 by mitasci          ###   ########.fr       */
+/*   Updated: 2024/04/25 12:27:41 by mitasci          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,11 +39,11 @@ int	main(int argc, char **argv)
 	t_app	*app;
 
 	if (argc <= 1 || (argc == 2 && argv[1][0] != 'm')) //diğer şartları da ekle
-    {
-        write(1, "Usage:\nMandelbrot:\t./fractol m\nJulia:\t\t./fractol j <Re(c)> <Im(c)>\n", 68);
-        return (0);
-    }
-
+	{
+		write(1, "Usage:\nMandelbrot:\t./fractol m\n", 32);
+		write(1, "Julia:\t\t./fractol j <Re(c)> <Im(c)>\n", 37);
+		return (0);
+	}
 	app = malloc(sizeof(t_app));
 	if (!app)
 	{
