@@ -6,7 +6,7 @@
 /*   By: mitasci <mitasci@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/19 16:16:47 by mitasci           #+#    #+#             */
-/*   Updated: 2024/04/24 19:34:15 by mitasci          ###   ########.fr       */
+/*   Updated: 2024/04/25 11:18:06 by mitasci          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,24 +41,12 @@ int	handle_mousewheel(int button, int x, int y, t_app *app)
     if (button == 4)
     {
 		zoom_in(app, 0.15, x, y);
-		fill_image(app->win_size, &(app->img), *app);
-		mlx_put_image_to_window(app->mlx, app->mlx_win, app->img.img, 0, 0);
+		draw(app);
     }
     else if (button == 5)
     {
 		zoom_out(app, 0.15, x, y);
-		fill_image(app->win_size, &(app->img), *app);
-		mlx_put_image_to_window(app->mlx, app->mlx_win, app->img.img, 0, 0);
+		draw(app);
     }
 	return (0);
-}
-
-double	scale_x(int x, double scale, int offset)
-{
-	return ((x - offset) / scale);
-}
-
-double	scale_y(int y, double scale, int offset)
-{
-	return ((offset - y) / scale);
 }

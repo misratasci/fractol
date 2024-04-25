@@ -6,11 +6,21 @@
 /*   By: mitasci <mitasci@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/19 18:03:14 by mitasci           #+#    #+#             */
-/*   Updated: 2024/04/24 19:41:07 by mitasci          ###   ########.fr       */
+/*   Updated: 2024/04/25 11:17:02 by mitasci          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
+
+double	scale_x(int x, double scale, int offset)
+{
+	return ((x - offset) / scale);
+}
+
+double	scale_y(int y, double scale, int offset)
+{
+	return ((offset - y) / scale);
+}
 
 int	get_color(int i, int max_iter)
 {
@@ -47,4 +57,10 @@ void	fill_image(int size_x, t_data *img, t_app app)
 		}
 		x++;
 	}
+}
+
+void	draw(t_app *app)
+{
+	fill_image(app->win_size, &(app->img), *app);
+	mlx_put_image_to_window(app->mlx, app->mlx_win, app->img.img, 0, 0);
 }

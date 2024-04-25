@@ -6,7 +6,7 @@
 /*   By: mitasci <mitasci@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/16 16:13:40 by mitasci           #+#    #+#             */
-/*   Updated: 2024/04/25 11:14:09 by mitasci          ###   ########.fr       */
+/*   Updated: 2024/04/25 11:17:49 by mitasci          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,8 +44,7 @@ int	main(int argc, char **argv)
 		exit(EXIT_FAILURE);
 	}
 	app_init(app);
-	fill_image(app->win_size, &(app->img), *app);
-	mlx_put_image_to_window(app->mlx, app->mlx_win, app->img.img, 0, 0);
+	draw(app);
 	mlx_hook(app->mlx_win, 04, 0, handle_mousewheel, app);
 	mlx_loop(app->mlx);
 }
