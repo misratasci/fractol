@@ -6,7 +6,7 @@
 /*   By: mitasci <mitasci@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/16 16:13:40 by mitasci           #+#    #+#             */
-/*   Updated: 2024/04/25 13:46:38 by mitasci          ###   ########.fr       */
+/*   Updated: 2024/04/25 13:47:34 by mitasci          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,9 +38,9 @@ void	app_init(t_app *app, char **argv)
 void	print_usage(void)
 {
 	write(1, "Usage:\nMandelbrot:\n\t./fractol m\n", 33);
-	write(1, "\t./fractol m [max_iter]\n", 25);
+	//write(1, "\t./fractol m [max_iter]\n", 25);
 	write(1, "Julia:\n\t./fractol j [Re(c)] [Im(c)]\n", 37);
-	write(1, "\t./fractol j [Re(c)] [Im(c)] [max_iter]\n", 41);
+	//write(1, "\t./fractol j [Re(c)] [Im(c)] [max_iter]\n", 41);
 	write(1, "(default max_iter: 50)\n", 24);
 }
 

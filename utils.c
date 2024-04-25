@@ -6,7 +6,7 @@
 /*   By: mitasci <mitasci@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/19 18:03:14 by mitasci           #+#    #+#             */
-/*   Updated: 2024/04/25 13:31:45 by mitasci          ###   ########.fr       */
+/*   Updated: 2024/04/25 13:52:03 by mitasci          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,14 +24,24 @@ double	scale_y(int y, double scale, int offset)
 
 int	get_color(int i, int max_iter)
 {
-	if (i < max_iter / 5)
-		return (0x00BAC1B8);
-	if (i < 2 * max_iter / 5)
-		return (0x0058A4B0);
-	if (i < 3 * max_iter / 5)
-		return (0x000C7C59);
-	if (i < 4 * max_iter / 5)
-		return (0x00D64933);
+	if (i < max_iter / 10)
+		return (0x00CC1F1F);
+	if (i < 2 * max_iter / 10)
+		return (0x00B82C37);
+	if (i < 3 * max_iter / 10)
+		return (0x00A5394F);
+	if (i < 4 * max_iter / 10)
+		return (0x00914666);
+	if (i < 5 * max_iter / 10)
+		return (0x007D537E);
+	if (i < 6 * max_iter / 10)
+		return (0x006A5F96);
+	if (i < 7 * max_iter / 10)
+		return (0x00566CAE);
+	if (i < 8 * max_iter / 10)
+		return (0x004279C5);
+	if (i < 9 * max_iter / 10)
+		return (0x002F86DD);
 	return (0x002B303A);
 }
 
