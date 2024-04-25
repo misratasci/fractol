@@ -6,7 +6,7 @@
 /*   By: mitasci <mitasci@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/16 16:13:40 by mitasci           #+#    #+#             */
-/*   Updated: 2024/04/25 11:10:22 by mitasci          ###   ########.fr       */
+/*   Updated: 2024/04/25 11:11:46 by mitasci          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,15 @@ void	app_init(t_app *app)
 	app->scale = (double)(app->win_size / 4);
 }
 
-int	main(void)
+int	main(int argc, char **argv)
 {
 	t_app	*app;
+
+	if (argc <= 1 || (argc == 2 && argv[1][0] != 'm')) //diğer şartları da ekle
+    {
+        write(1, "Usage:\nMandelbrot:\t./fractol m\nJulia:\t\t./fractol j <Re(c)> <Im(c)>\n", 68);
+        return (0);
+    }
 
 	app = malloc(sizeof(t_app));
 	printf("%p\n", &app);

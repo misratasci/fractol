@@ -6,7 +6,7 @@
 /*   By: mitasci <mitasci@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 12:23:52 by mitasci           #+#    #+#             */
-/*   Updated: 2024/04/24 16:42:55 by mitasci          ###   ########.fr       */
+/*   Updated: 2024/04/25 11:12:07 by mitasci          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,9 @@
 # define FRACTOL_H
 
 # include <mlx.h>
-# include <stdio.h>
+# include <stdio.h> //gerek yoksa sil
 # include <stdlib.h>
+# include <unistd.h>
 
 typedef struct s_data {
 	void	*img;
