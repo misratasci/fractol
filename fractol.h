@@ -6,7 +6,7 @@
 /*   By: mitasci <mitasci@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 12:23:52 by mitasci           #+#    #+#             */
-/*   Updated: 2024/04/25 11:18:53 by mitasci          ###   ########.fr       */
+/*   Updated: 2024/04/25 11:36:17 by mitasci          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ typedef struct s_app {
 	double	cx;
 	double	cy;
 	char	fractal;
+	double	zoom_speed;
 }	t_app;
 
 //mandelbrot.c
