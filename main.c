@@ -6,7 +6,7 @@
 /*   By: mitasci <mitasci@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/16 16:13:40 by mitasci           #+#    #+#             */
-/*   Updated: 2024/04/25 13:15:58 by mitasci          ###   ########.fr       */
+/*   Updated: 2024/04/25 13:46:38 by mitasci          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	app_init(t_app *app, char **argv)
 {
-	app->win_size = 600;
+	app->win_size = 1000;
 	app->offset_x = app->win_size / 2;
 	app->offset_y = app->win_size / 2;
 	app->mlx = mlx_init();
@@ -37,8 +37,11 @@ void	app_init(t_app *app, char **argv)
 
 void	print_usage(void)
 {
-	write(1, "Usage:\nMandelbrot:\t./fractol m\n", 32);
-	write(1, "Julia:\t\t./fractol j <Re(c)> <Im(c)>\n", 37);
+	write(1, "Usage:\nMandelbrot:\n\t./fractol m\n", 33);
+	write(1, "\t./fractol m [max_iter]\n", 25);
+	write(1, "Julia:\n\t./fractol j [Re(c)] [Im(c)]\n", 37);
+	write(1, "\t./fractol j [Re(c)] [Im(c)] [max_iter]\n", 41);
+	write(1, "(default max_iter: 50)\n", 24);
 }
 
 void	check_args(int argc, char **argv)

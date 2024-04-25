@@ -6,7 +6,7 @@
 /*   By: mitasci <mitasci@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/25 10:45:00 by mitasci           #+#    #+#             */
-/*   Updated: 2024/04/25 13:16:15 by mitasci          ###   ########.fr       */
+/*   Updated: 2024/04/25 13:46:31 by mitasci          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int	get_julia_pixel(int x, int y, t_app app)
 	z2[0] = z[0] * z[0];
 	z2[1] = z[1] * z[1];
 	i = 0;
-	max_iter = 500;
+	max_iter = 100;
 	while (z2[0] + z2[1] <= 4 && i < max_iter)
 	{
 		z[1] = 2 * z[0] * z[1] + app.cy;
