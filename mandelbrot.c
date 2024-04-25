@@ -6,7 +6,7 @@
 /*   By: mitasci <mitasci@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/19 16:10:19 by mitasci           #+#    #+#             */
-/*   Updated: 2024/04/25 13:46:24 by mitasci          ###   ########.fr       */
+/*   Updated: 2024/04/25 18:01:45 by mitasci          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,5 +36,5 @@ int	get_mandelbrot_pixel(int x, int y, t_app app)
 		z2[1] = z[1] * z[1];
 		i++;
 	}
-	return (get_color(i, max_iter));
+	return (get_color(i));
 }

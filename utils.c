@@ -6,7 +6,7 @@
 /*   By: mitasci <mitasci@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/19 18:03:14 by mitasci           #+#    #+#             */
-/*   Updated: 2024/04/25 17:26:10 by mitasci          ###   ########.fr       */
+/*   Updated: 2024/04/25 18:01:34 by mitasci          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,27 +22,28 @@ double	scale_y(int y, double scale, int offset)
 	return ((offset - y) / scale);
 }
 
-int	get_color(int i, int max_iter)
+int	get_color(int i)
 {
-	if (i < max_iter / 10)
-		return (0x00871326);
-	if (i < 2 * max_iter / 10)
-		return (0x007B1F41);
-	if (i < 3 * max_iter / 10)
-		return (0x006E2B5C);
-	if (i < 4 * max_iter / 10)
-		return (0x00623776);
-	if (i < 5 * max_iter / 10)
-		return (0x00564391);
-	if (i < 6 * max_iter / 10)
-		return (0x00494EAC);
-	if (i < 7 * max_iter / 10)
-		return (0x003D5AC7);
-	if (i < 8 * max_iter / 10)
-		return (0x003066E1);
-	if (i < 9 * max_iter / 10)
-		return (0x002472FC);
-	return (0x002B303A);
+	if (i % 10 == 0)
+		return (0x00CC2F00);
+	else if (i % 10 == 1)
+		return (0x00DB6600);
+	else if (i % 10 == 2)
+		return (0x00E39E00);
+	else if (i % 10 == 3)
+		return (0x0076B80D);
+	else if (i % 10 == 4)
+		return (0x00007668);
+	else if (i % 10 == 5)
+		return (0x00006486);
+	else if (i % 10 == 6)
+		return (0x00007CB5);
+	else if (i % 10 == 7)
+		return (0x00465AB2);
+	else if (i % 10 == 8)
+		return (0x006D47B1);
+	else
+		return (0x00873B9C);
 }
 
 void	fill_image(int size_x, t_data *img, t_app app)

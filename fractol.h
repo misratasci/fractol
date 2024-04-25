@@ -6,7 +6,7 @@
 /*   By: mitasci <mitasci@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 12:23:52 by mitasci           #+#    #+#             */
-/*   Updated: 2024/04/25 17:35:21 by mitasci          ###   ########.fr       */
+/*   Updated: 2024/04/25 18:01:41 by mitasci          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define FRACTOL_H
 
 # include <mlx.h>
-# include <stdio.h> //gerek yoksa sil
+# include <stdio.h>
 # include <stdlib.h>
 # include <unistd.h>
 
@@ -50,11 +50,11 @@ int		get_julia_pixel(int x, int y, t_app app);
 
 //hooks.c
 int		handle_mousewheel(int button, int x, int y, t_app *app);
-int		handle_destroy(void);
-int		handle_esc(int keycode);
+int		handle_destroy(t_app *app);
+int		handle_esc(int keycode, t_app *app);
 
 //utils.c
-int		get_color(int i, int max_iter);
+int		get_color(int i);
 void	fill_image(int size_x, t_data *img, t_app app);
 double	scale_x(int x, double scale, int offset);
 double	scale_y(int y, double scale, int offset);
