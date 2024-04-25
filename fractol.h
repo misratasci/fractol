@@ -6,7 +6,7 @@
 /*   By: mitasci <mitasci@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 12:23:52 by mitasci           #+#    #+#             */
-/*   Updated: 2024/04/25 11:36:17 by mitasci          ###   ########.fr       */
+/*   Updated: 2024/04/25 11:51:31 by mitasci          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,5 +58,11 @@ void	fill_image(int size_x, t_data *img, t_app app);
 double	scale_x(int x, double scale, int offset);
 double	scale_y(int y, double scale, int offset);
 void	draw(t_app *app);
+
+//libft
+int	ft_atoi(const char *str);
+char	**ft_split(char const *s, char c);
+char	*ft_strjoin(char const *s1, char const *s2);
+size_t	ft_strlen(const char *s);
 
 #endif
