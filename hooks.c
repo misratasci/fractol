@@ -6,7 +6,7 @@
 /*   By: mitasci <mitasci@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/19 16:16:47 by mitasci           #+#    #+#             */
-/*   Updated: 2024/04/25 11:37:09 by mitasci          ###   ########.fr       */
+/*   Updated: 2024/04/25 13:17:27 by mitasci          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,15 +38,15 @@ void	zoom_out(t_app *app, int x, int y)
 
 int	handle_mousewheel(int button, int x, int y, t_app *app)
 {
-    if (button == 4)
-    {
+	if (button == 4)
+	{
 		zoom_in(app, x, y);
 		draw(app);
-    }
-    else if (button == 5)
-    {
+	}
+	else if (button == 5)
+	{
 		zoom_out(app, x, y);
 		draw(app);
-    }
+	}
 	return (0);
 }

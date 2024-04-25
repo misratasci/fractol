@@ -6,7 +6,7 @@
 /*   By: mitasci <mitasci@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 12:23:52 by mitasci           #+#    #+#             */
-/*   Updated: 2024/04/25 12:45:05 by mitasci          ###   ########.fr       */
+/*   Updated: 2024/04/25 13:18:13 by mitasci          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,8 @@
 # include <stdlib.h>
 # include <unistd.h>
 
-typedef struct s_data {
+typedef struct s_data
+{
 	void	*img;
 	char	*addr;
 	int		bits_per_pixel;
@@ -26,7 +27,8 @@ typedef struct s_data {
 	int		endian;
 }	t_data;
 
-typedef struct s_app {
+typedef struct s_app
+{
 	void	*mlx;
 	void	*mlx_win;
 	int		win_size;
@@ -41,16 +43,13 @@ typedef struct s_app {
 }	t_app;
 
 //mandelbrot.c
-int	get_mandelbrot_pixel(int x, int y, t_app app);
+int		get_mandelbrot_pixel(int x, int y, t_app app);
 
 //julia.c
-int	get_julia_pixel(int x, int y, t_app app);
+int		get_julia_pixel(int x, int y, t_app app);
 
 //hooks.c
-int	handle_mousewheel(int button, int x, int y, t_app *app);
-
-//mtx.c
-int		**create_matrix(int size_x);
+int		handle_mousewheel(int button, int x, int y, t_app *app);
 
 //utils.c
 int		get_color(int i, int max_iter);

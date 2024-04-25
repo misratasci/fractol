@@ -6,7 +6,7 @@
 /*   By: mitasci <mitasci@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/19 18:03:14 by mitasci           #+#    #+#             */
-/*   Updated: 2024/04/25 13:05:18 by mitasci          ###   ########.fr       */
+/*   Updated: 2024/04/25 13:13:07 by mitasci          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,6 +87,7 @@ int	count_in_str(const char *s, char c)
 int	valid_double(const char *s)
 {
 	int	i;
+
 	i = 0;
 	if (count_in_str(s, '.') > 1 || s[ft_strlen(s) - 1] == '.')
 		return (0);
