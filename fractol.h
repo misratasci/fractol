@@ -6,7 +6,7 @@
 /*   By: mitasci <mitasci@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 12:23:52 by mitasci           #+#    #+#             */
-/*   Updated: 2024/04/25 11:12:07 by mitasci          ###   ########.fr       */
+/*   Updated: 2024/04/25 11:13:11 by mitasci          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,8 @@ typedef struct s_app {
 	double	scale;
 	int		offset_x;
 	int		offset_y;
+	double	cx;
+	double	cy;
 }	t_app;
 
 //mandelbrot.c

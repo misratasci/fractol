@@ -6,7 +6,7 @@
 /*   By: mitasci <mitasci@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/16 16:13:40 by mitasci           #+#    #+#             */
-/*   Updated: 2024/04/25 11:11:46 by mitasci          ###   ########.fr       */
+/*   Updated: 2024/04/25 11:13:26 by mitasci          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,8 @@ void	app_init(t_app *app)
 	app->img.addr = mlx_get_data_addr(app->img.img, &app->img.bits_per_pixel, &app->img.line_length,
 								&app->img.endian);
 	app->scale = (double)(app->win_size / 4);
+	app->cx = 0.35;
+	app->cy = 0.35;
 }
 
 int	main(int argc, char **argv)
