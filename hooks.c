@@ -6,7 +6,7 @@
 /*   By: mitasci <mitasci@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/19 16:16:47 by mitasci           #+#    #+#             */
-/*   Updated: 2024/04/25 13:17:27 by mitasci          ###   ########.fr       */
+/*   Updated: 2024/04/25 17:38:48 by mitasci          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,5 +48,18 @@ int	handle_mousewheel(int button, int x, int y, t_app *app)
 		zoom_out(app, x, y);
 		draw(app);
 	}
+	return (0);
+}
+
+int	handle_destroy(void)
+{
+	exit(EXIT_SUCCESS);
+	return (0);
+}
+
+int	handle_esc(int keycode)
+{
+	if (keycode == 53)
+		exit(EXIT_SUCCESS);
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: mitasci <mitasci@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 12:23:52 by mitasci           #+#    #+#             */
-/*   Updated: 2024/04/25 13:46:06 by mitasci          ###   ########.fr       */
+/*   Updated: 2024/04/25 17:35:21 by mitasci          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,8 @@ int		get_julia_pixel(int x, int y, t_app app);
 
 //hooks.c
 int		handle_mousewheel(int button, int x, int y, t_app *app);
+int		handle_destroy(void);
+int		handle_esc(int keycode);
 
 //utils.c
 int		get_color(int i, int max_iter);

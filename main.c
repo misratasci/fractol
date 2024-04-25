@@ -6,7 +6,7 @@
 /*   By: mitasci <mitasci@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/16 16:13:40 by mitasci           #+#    #+#             */
-/*   Updated: 2024/04/25 13:47:34 by mitasci          ###   ########.fr       */
+/*   Updated: 2024/04/25 17:35:39 by mitasci          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,5 +77,7 @@ int	main(int argc, char **argv)
 	app_init(app, argv);
 	draw(app);
 	mlx_hook(app->mlx_win, 04, 0, handle_mousewheel, app);
+	mlx_hook(app->mlx_win, 17, 0, handle_destroy, NULL);
+	mlx_hook(app->mlx_win, 02, 0, handle_esc, NULL);
 	mlx_loop(app->mlx);
 }
