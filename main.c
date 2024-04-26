@@ -6,7 +6,7 @@
 /*   By: mitasci <mitasci@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/16 16:13:40 by mitasci           #+#    #+#             */
-/*   Updated: 2024/04/26 17:10:38 by mitasci          ###   ########.fr       */
+/*   Updated: 2024/04/26 17:19:21 by mitasci          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,13 +51,15 @@ void	print_usage(void)
 
 void	check_args(int argc, char **argv)
 {
-	if (argc <= 1 || argc > 5 || ((argc == 2 || argc == 3) && !valid_fractal(argv[1], 'm')) ||
-		((argc == 4 || argc == 5) && !valid_fractal(argv[1], 'j')))
+	if (argc <= 1 || argc > 5
+		|| ((argc == 2 || argc == 3) && !valid_fractal(argv[1], 'm'))
+		|| ((argc == 4 || argc == 5) && !valid_fractal(argv[1], 'j')))
 	{
 		print_usage();
 		exit(EXIT_SUCCESS);
 	}
-	if ((argc == 3 && !valid_int(argv[2])) || (argc == 5 && !valid_int(argv[4])))
+	if ((argc == 3 && !valid_int(argv[2]))
+		|| (argc == 5 && !valid_int(argv[4])))
 	{
 		write(1, "Int parse error\n", 17);
 		print_usage();

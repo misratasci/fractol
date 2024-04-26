@@ -6,7 +6,7 @@
 /*   By: mitasci <mitasci@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 12:23:52 by mitasci           #+#    #+#             */
-/*   Updated: 2024/04/26 17:03:49 by mitasci          ###   ########.fr       */
+/*   Updated: 2024/04/26 17:22:20 by mitasci          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,8 @@ void	fill_image(int size_x, t_data *img, t_app app);
 double	scale_x(int x, double scale, int offset);
 double	scale_y(int y, double scale, int offset);
 void	draw(t_app *app);
+
+//checks.c
 int		valid_double(const char *s);
 int		count_in_str(const char *s, char c);
 int		valid_int(const char *s);
