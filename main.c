@@ -6,7 +6,7 @@
 /*   By: mitasci <mitasci@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/16 16:13:40 by mitasci           #+#    #+#             */
-/*   Updated: 2024/04/25 17:40:30 by mitasci          ###   ########.fr       */
+/*   Updated: 2024/04/26 16:46:04 by mitasci          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ void	print_usage(void)
 	//write(1, "\t./fractol m [max_iter]\n", 25);
 	write(1, "Julia:\n\t./fractol j [Re(c)] [Im(c)]\n", 37);
 	//write(1, "\t./fractol j [Re(c)] [Im(c)] [max_iter]\n", 41);
-	write(1, "(default max_iter: 50)\n", 24);
+	//write(1, "(default max_iter: 50)\n", 24);
 }
 
 void	check_args(int argc, char **argv)

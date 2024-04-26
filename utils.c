@@ -6,7 +6,7 @@
 /*   By: mitasci <mitasci@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/19 18:03:14 by mitasci           #+#    #+#             */
-/*   Updated: 2024/04/25 18:05:23 by mitasci          ###   ########.fr       */
+/*   Updated: 2024/04/26 16:40:38 by mitasci          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ double	scale_y(int y, double scale, int offset)
 
 int	get_color(int i)
 {
-	return (i * 0x00102030);
+	return (i * 0x00030609);
 }
 
 void	fill_image(int size_x, t_data *img, t_app app)

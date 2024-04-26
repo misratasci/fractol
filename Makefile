@@ -6,16 +6,22 @@ SRCS = main.c mandelbrot.c julia.c hooks.c utils.c \
 		libft/ft_atoi.c libft/ft_split.c libft/ft_strjoin.c libft/ft_strlen.c \
 		libft/ft_atod.c libft/ft_isdigit.c
 OBJ = $(SRCS:.c=.o)
+MLX_DIR = minilibx_opengl_20191021/
+MLX = $(MLX_DIR)libmlx.a
 
-all: $(NAME)
+all: $(MLX) $(NAME)
+
+$(MLX):
+	make -C $(MLX_DIR)
 
 %.o: %.c
-	$(CC) $(CFLAGS) -Imlx -c $< -o $@
+	$(CC) $(CFLAGS) -I $(MLX_DIR) -c $< -o $@
 
 $(NAME): $(OBJ)
-	$(CC) $(OBJ) -Lmlx -lmlx -framework OpenGL -framework AppKit -o $(NAME) 
+	$(CC) $(OBJ) -L $(MLX_DIR) -lmlx -framework OpenGL -framework AppKit -o $(NAME)
 
 clean:
+	make clean -C $(MLX_DIR)
 	$(RM) $(SRCS:.c=.o)
 
 fclean: clean
@@ -32,4 +38,4 @@ git:
 	@git push
 	@git log
 
-.PHONY = all clean fclean re
+.PHONY = all clean fclean re git
