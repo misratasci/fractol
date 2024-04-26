@@ -6,13 +6,13 @@
 /*   By: mitasci <mitasci@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/16 16:13:40 by mitasci           #+#    #+#             */
-/*   Updated: 2024/04/26 17:06:57 by mitasci          ###   ########.fr       */
+/*   Updated: 2024/04/26 17:10:38 by mitasci          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-void	app_init(t_app *app, char **argv)
+void	app_init(t_app *app, int argc, char **argv)
 {
 	app->win_size = 1000;
 	app->offset_x = app->win_size / 2;
@@ -33,7 +33,11 @@ void	app_init(t_app *app, char **argv)
 		app->cy = ft_atod(argv[3]);
 	}
 	app->zoom_speed = 0.10;
-	app->max_iter = 100;
+	app->max_iter = 50;
+	if (argc == 3 && app->fractal == 'm')
+		app->max_iter = ft_atoi(argv[2]);
+	if (argc == 5 && app->fractal == 'j')
+		app->max_iter = ft_atoi(argv[4]);
 }
 
 void	print_usage(void)
@@ -81,7 +85,7 @@ int	main(int argc, char **argv)
 		perror("Could not allocate memory for app\n");
 		exit(EXIT_FAILURE);
 	}
-	app_init(app, argv);
+	app_init(app, argc, argv);
 	draw(app);
 	mlx_hook(app->mlx_win, 04, 0, handle_mousewheel, app);
 	mlx_hook(app->mlx_win, 17, 0, handle_destroy, app);
