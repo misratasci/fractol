@@ -6,7 +6,7 @@
 /*   By: mitasci <mitasci@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/16 16:13:40 by mitasci           #+#    #+#             */
-/*   Updated: 2024/04/26 16:46:04 by mitasci          ###   ########.fr       */
+/*   Updated: 2024/04/26 17:06:57 by mitasci          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,26 +33,33 @@ void	app_init(t_app *app, char **argv)
 		app->cy = ft_atod(argv[3]);
 	}
 	app->zoom_speed = 0.10;
+	app->max_iter = 100;
 }
 
 void	print_usage(void)
 {
 	write(1, "Usage:\nMandelbrot:\n\t./fractol m\n", 33);
-	//write(1, "\t./fractol m [max_iter]\n", 25);
+	write(1, "\t./fractol m [max_iter]\n", 25);
 	write(1, "Julia:\n\t./fractol j [Re(c)] [Im(c)]\n", 37);
-	//write(1, "\t./fractol j [Re(c)] [Im(c)] [max_iter]\n", 41);
-	//write(1, "(default max_iter: 50)\n", 24);
+	write(1, "\t./fractol j [Re(c)] [Im(c)] [max_iter]\n", 41);
+	write(1, "(default max_iter: 50)\n", 24);
 }
 
 void	check_args(int argc, char **argv)
 {
-	if (argc <= 1 || (argc == 2 && argv[1][0] != 'm') ||
-	argc == 3 || (argc == 4 && argv[1][0] != 'j') || argc >= 5)
+	if (argc <= 1 || argc > 5 || ((argc == 2 || argc == 3) && !valid_fractal(argv[1], 'm')) ||
+		((argc == 4 || argc == 5) && !valid_fractal(argv[1], 'j')))
 	{
 		print_usage();
 		exit(EXIT_SUCCESS);
 	}
-	if (argc == 4 && argv[1][0] == 'j')
+	if ((argc == 3 && !valid_int(argv[2])) || (argc == 5 && !valid_int(argv[4])))
+	{
+		write(1, "Int parse error\n", 17);
+		print_usage();
+		exit(EXIT_SUCCESS);
+	}
+	if (argc == 4 && valid_fractal(argv[1], 'j'))
 	{
 		if (!valid_double(argv[2]) || !valid_double(argv[3]))
 		{

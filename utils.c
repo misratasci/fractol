@@ -6,7 +6,7 @@
 /*   By: mitasci <mitasci@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/19 18:03:14 by mitasci           #+#    #+#             */
-/*   Updated: 2024/04/26 16:40:38 by mitasci          ###   ########.fr       */
+/*   Updated: 2024/04/26 17:05:45 by mitasci          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,4 +92,43 @@ int	valid_double(const char *s)
 		i++;
 	}
 	return (1);
+}
+
+static int	int_in_limit(const char *s)
+{
+	size_t	len;
+
+	len = ft_strlen(s);
+	if ((len > 10 && s[0] != '-') || (s[0] == '-' && len > 11))
+		return (0);
+	if (len == 10 && s[0] != '-' &&
+		ft_strncmp(s, "2147483647", 10) > 0)
+		return (0);
+	if (len == 11 && s[0] == '-' &&
+		ft_strncmp(s, "-2147483648", 11) > 0)
+		return (0);
+	return (1);
+}
+
+int	valid_int(const char *s)
+{
+	int	i;
+
+	if (!int_in_limit(s))
+		return (0);
+	i = 0;
+	if (s[0] == '-' || s[0] == '+')
+		i++;
+	while (s[i])
+	{
+		if (!ft_isdigit(s[i]))
+			return (0);
+		i++;
+	}
+	return (1);
+}
+
+int	valid_fractal(const char *s, char f)
+{
+	return (ft_strlen(s) == 1 && s[0] == f);
 }

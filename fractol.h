@@ -6,7 +6,7 @@
 /*   By: mitasci <mitasci@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 12:23:52 by mitasci           #+#    #+#             */
-/*   Updated: 2024/04/25 18:01:41 by mitasci          ###   ########.fr       */
+/*   Updated: 2024/04/26 17:03:49 by mitasci          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ typedef struct s_app
 	double	cy;
 	char	fractal;
 	double	zoom_speed;
+	int		max_iter;
 }	t_app;
 
 //mandelbrot.c
@@ -61,6 +62,8 @@ double	scale_y(int y, double scale, int offset);
 void	draw(t_app *app);
 int		valid_double(const char *s);
 int		count_in_str(const char *s, char c);
+int		valid_int(const char *s);
+int		valid_fractal(const char *s, char f);
 
 //libft
 int		ft_atoi(const char *str);
@@ -69,5 +72,6 @@ char	*ft_strjoin(char const *s1, char const *s2);
 size_t	ft_strlen(const char *s);
 double	ft_atod(const char *s);
 int		ft_isdigit(int c);
+int		ft_strncmp(const char *s1, const char *s2, size_t n);
 
 #endif
